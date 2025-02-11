@@ -1,4 +1,4 @@
-const nameInput = document.getElementById("Luke-Woodruff");
+const nameInput = document.getElementById("my-name-input");
 const myMessage = document.getElementById("my-message-input");
 const chatbox =  document.getElementById("chat");
 const sendButton = document.getElementById("send-button");
