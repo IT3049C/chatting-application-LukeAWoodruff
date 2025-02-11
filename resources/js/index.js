@@ -52,4 +52,14 @@ function updateMessagesInChatBox(){
             chatbox.innerHTML = formattedMessages;
 }
 updateMessages();
+function sendMessage(username, messageText){
+    const newMessage ={
+        sender: username,
+        text: messageText,
+        timestamp: Date.now()
+    };
+    const messageHTML=formatMessage(newMessage, username);
+    chatbox.innerHTML +=messageHTML;
+    myMessage.value ="";
+}
 
