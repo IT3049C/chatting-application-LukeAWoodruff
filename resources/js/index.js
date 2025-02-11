@@ -21,7 +21,7 @@ if (myNameInput === message.sender){
     </div>
     </div>`;
     }
- } 
+} 
 async function fetchMessages(){
     try{
         const response =await fetch('https://it3049c-chat.fly.dev/messages');
@@ -44,7 +44,7 @@ async function updateMessagesInChatBox(){
             });
             chatbox.innerHTML = formattedMessages;
 }
-function sendMessages(username, text){
+function sendMessage(username, text){
     const newMessage ={
         sender: username,
         text: text,
