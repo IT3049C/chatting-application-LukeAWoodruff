@@ -22,29 +22,21 @@ if (myNameInput === message.sender){
     }
  } 
 async function fetchMessages(){
-    return[
-        {
-    id: 1,
-    text: "This is a message",
-    sender: "Luke Woodruff",
-    timestamp: 1537410673072
-  },
-  {
-    id :2,
-    text:"Another Message",
-    sender: "Luke Woodruff",
-    timestamp: 1537410673072
-    },
-         {
-        id: 3,
-        text: "Someone elses message",
-        sender:"Sombody else",
-        timestamp:1537410673072
+    try{
+        const response =await fetch('https://it3049c-chat.fly.dev/messages');
+        if (!response.ok){
+            throw new Error('Network response was not ok '+response.statusText);
         }
-    ];
+        const messages = await response.json();
+        return messages;
+    } catch (error){
+        console.error('There has been a problem with your fetch operation:', error);
+        return[];
+    }
 }
-function updateMessagesInChatBox(){
-    const messages = fetchMessages();
+
+async function updateMessagesInChatBox(){
+    const messages = await fetchMessages();
     let formattedMessages = "";
     messages.forEach(message =>{
         formattedMessages +=formatMessage(message,nameInput.value);
