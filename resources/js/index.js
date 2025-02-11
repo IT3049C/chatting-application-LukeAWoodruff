@@ -43,15 +43,19 @@ async function updateMessagesInChatBox(){
             });
             chatbox.innerHTML = formattedMessages;
 }
-function sendMessage(username, messageText){
+function sendMessages(username, text){
     const newMessage ={
         sender: username,
-        text: messageText,
-        timestamp: Date.now()
+        text: text,
+        timestamp: new Date()
     };
-    const messageHTML=formatMessage(newMessage, username);
-    chatbox.innerHTML +=messageHTML;
-    myMessage.value ="";
+    fetch(serverURL,{
+        method:"POST",
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newMessage)
+    });
 }
 sendButton.addEventListener("click", function(event){
     event.preventDefault();
