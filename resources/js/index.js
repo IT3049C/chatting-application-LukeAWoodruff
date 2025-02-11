@@ -43,7 +43,6 @@ async function updateMessagesInChatBox(){
             });
             chatbox.innerHTML = formattedMessages;
 }
-updateMessages();
 function sendMessage(username, messageText){
     const newMessage ={
         sender: username,
@@ -61,3 +60,6 @@ sendButton.addEventListener("click", function(event){
     sendMessages(sender, message);
     myMessage.value="";
 });
+const MILLISECONDS_IN_TEN_SECONDS = 10000;
+setInterval(updateMessages, MILLISECONDS_IN_TEN_SECONDS);
+updateMessages();
