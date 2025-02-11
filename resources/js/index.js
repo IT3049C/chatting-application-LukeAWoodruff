@@ -21,7 +21,7 @@ if (myNameInput === message.sender){
     </div>`;
     }
  } 
-function fetchMessages(){
+async function fetchMessages(){
     return[
         {
     id: 1,
@@ -62,4 +62,10 @@ function sendMessage(username, messageText){
     chatbox.innerHTML +=messageHTML;
     myMessage.value ="";
 }
-
+sendButton.addEventListener("click", function(event){
+    event.preventDefault();
+    const sender = nameInput.value;
+    const message = myMessage.value;
+    sendMessages(sender, message);
+    myMessage.value="";
+});
