@@ -44,13 +44,13 @@ async function updateMessagesInChatBox(){
             });
             chatbox.innerHTML = formattedMessages;
 }
-function sendMessage(username, text){
+function sendMessages(username, text){
     const newMessage ={
         sender: username,
         text: text,
         timestamp: new Date()
     };
-    fetch('https://it3049c-chat.fly.dev/messages',{
+    fetch('https://it3049c-chat.fly.dev',{
         method:"POST",
         headers:{
             'Content-Type': 'application/json'
