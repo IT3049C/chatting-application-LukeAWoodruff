@@ -20,10 +20,26 @@ if (myNameInput === message.sender){
     </div>
     </div>`;
     }
-} 
-{
-    "id"; 1,
-    "text"; "This is my message",
-    "sender"; "Yahya Gilany",
-    "timestamp"; 1537410673072
-  }
+ } 
+function fetchMessages(){
+    return[
+        {
+    id: 1,
+    text: "This is my message",
+    sender: "Luke Woodruff",
+    timestamp: 1537410673072
+  },
+  {
+    id :2,
+    text:"Another Message",
+    sender: "Luke Woodruff",
+    timestamp: 1537410673072
+    },
+         {
+        id: 3,
+        text: "Someone elses message",
+        sender:"Sombody else",
+        timestamp:1537410673072
+        }
+    ];
+}
