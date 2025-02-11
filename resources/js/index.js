@@ -48,9 +48,9 @@ function sendMessages(username, text){
     const newMessage ={
         sender: username,
         text: text,
-        timestamp: new Date()
+        timestamp: new Date().toISOString()
     };
-    fetch('https://it3049c-chat.fly.dev',{
+    fetch('https://it3049c-chat.fly.dev/messages',{
         method:"POST",
         headers:{
             'Content-Type': 'application/json'
@@ -62,7 +62,7 @@ sendButton.addEventListener("click", async function(event){
     event.preventDefault();
     const sender = nameInput.value;
     const message = myMessage.value;
-    await sendMessage(sender, message);
+    await sendMessages(sender, message);
     myMessage.value="";
 });
 const MILLISECONDS_IN_TEN_SECONDS = 10000;
