@@ -58,11 +58,11 @@ function sendMessages(username, text){
         body: JSON.stringify(newMessage)
     });
 }
-sendButton.addEventListener("click", function(event){
+sendButton.addEventListener("click", async function(event){
     event.preventDefault();
     const sender = nameInput.value;
     const message = myMessage.value;
-    sendMessage(sender, message);
+    await sendMessage(sender, message);
     myMessage.value="";
 });
 const MILLISECONDS_IN_TEN_SECONDS = 10000;
