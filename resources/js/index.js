@@ -25,7 +25,7 @@ function fetchMessages(){
     return[
         {
     id: 1,
-    text: "This is my message",
+    text: "This is a message",
     sender: "Luke Woodruff",
     timestamp: 1537410673072
   },
@@ -43,3 +43,13 @@ function fetchMessages(){
         }
     ];
 }
+function updateMessagesInChatBox(){
+    const messages = fetchMessages();
+    let formattedMessages = "";
+    messages.forEach(message =>{
+        formattedMessages +=formatMessage(message,nameInput.value);
+            });
+            chatbox.innerHTML = formattedMessages;
+}
+updateMessages();
+
