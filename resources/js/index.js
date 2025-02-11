@@ -1,10 +1,11 @@
-const nameInput = document.getElementById("Luke Woodruff");
+const nameInput = document.getElementById("Luke-Woodruff");
 const myMessage = document.getElementById("my-message");
 const chatbox =  document.getElementById("chat");
 const sendButton = document.getElementById("send-button");
+
 function formatMessage(message, myNameInput){
-const time = newDate(message.timestamp);
-const formattedTime = `${time.getHours()}:${time.getMinutes()}`;
+    const time = new Date(message.timestamp);
+    const formattedTime = `${time.getHours()}:${time.getMinutes()}`;
 if (myNameInput === message.sender){
     return`
     <div class = "mine messages">
@@ -49,7 +50,7 @@ function sendMessages(username, text){
         text: text,
         timestamp: new Date()
     };
-    fetch(serverURL,{
+    fetch('https://it3049c-chat.fly.dev/messages',{
         method:"POST",
         headers:{
             'Content-Type': 'application/json'
@@ -61,9 +62,9 @@ sendButton.addEventListener("click", function(event){
     event.preventDefault();
     const sender = nameInput.value;
     const message = myMessage.value;
-    sendMessages(sender, message);
+    sendMessage(sender, message);
     myMessage.value="";
 });
 const MILLISECONDS_IN_TEN_SECONDS = 10000;
-setInterval(updateMessages, MILLISECONDS_IN_TEN_SECONDS);
-updateMessages();
+setInterval(updateMessagesInChatBox, MILLISECONDS_IN_TEN_SECONDS);
+updateMessagesInChatBox();
